@@ -4,15 +4,6 @@ using System.Text.Json.Serialization;
 using StudentAppPrj.Data;
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("ReactAppPolicy",
-        builder => builder
-            .WithOrigins("http://localhost:3000")
-            .AllowAnyMethod()
-            .AllowAnyHeader());
-});
-
 // Add services to the container.
 builder.Services.AddRazorPages();
 

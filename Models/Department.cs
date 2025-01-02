@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentAppPrj.Models
 {
@@ -6,8 +7,13 @@ namespace StudentAppPrj.Models
     {
 
         [Key]
-        public required string MaKhoa { get; set; }
-        public required string TenKhoa { get; set; }
+        [RegularExpression(@"^[a-zA-Z0-9]*$")]
+        [StringLength(8, MinimumLength = 4)]
+        public string MaKhoa { get; set; }
+
+        [Required]
+        [StringLength(30, MinimumLength = 3)]
+        public string TenKhoa { get; set; }
         public ICollection<Student>? Students { get; set; }
     }
 }
